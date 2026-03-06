@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description"
+    content="Private client booking portal — ReelEstate Orlando. Book your next shoot and pay your deposit securely via Square." />
+  <meta name="theme-color" content="#f9f6f1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Book Your Shoot | ReelEstate Orlando</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+  <link href="https://fonts.bunny.net/css?family=fraunces:400,600,700|outfit:300,400,500,600,700" rel="stylesheet" />
+
+  <link rel="stylesheet" href="client.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="c-header">
+    <div class="c-container c-header__inner">
+      <a href="/reelestate/" class="c-header__brand">
+        <div class="c-header__logo" aria-hidden="true"></div>
+        <span class="c-header__name">ReelEstate Orlando</span>
+      </a>
+      <span class="c-header__tag">Private Booking</span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="c-hero">
+    <div class="c-container">
+      <div class="c-hero__eyebrow">
+        <span class="c-hero__dot"></span>
+        4-Hour Professional Shoot
+      </div>
+      <h1>Book Your Next <span class="gold">Shoot</span></h1>
+      <p class="c-hero__sub">Select a date, pay your deposit securely via Square, and we'll handle the rest. Final
+        payment after the shoot unlocks your footage.</p>
+    </div>
+  </section>
+
+  <!-- Main Grid -->
+  <div class="c-container">
+    <div class="c-grid">
+
+      <!-- Calendar Card -->
+      <div class="c-card">
+        <h2 class="c-card__title">Pick Your Shoot Date</h2>
+
+        <div class="cal-controls">
+          <button class="cal-controls__btn" id="calPrev" aria-label="Previous month">‹</button>
+          <span class="cal-controls__month" id="calMonth"></span>
+          <button class="cal-controls__btn" id="calNext" aria-label="Next month">›</button>
+        </div>
+
+        <div class="cal-grid" id="calGrid">
+          <div class="cal-dow">Sun</div>
+          <div class="cal-dow">Mon</div>
+          <div class="cal-dow">Tue</div>
+          <div class="cal-dow">Wed</div>
+          <div class="cal-dow">Thu</div>
+          <div class="cal-dow">Fri</div>
+          <div class="cal-dow">Sat</div>
+        </div>
+      </div>
+
+      <!-- Booking Summary -->
+      <div class="c-card c-summary">
+        <h2 class="c-card__title">Booking Summary</h2>
+
+        <!-- Placeholder (shown before date selection) -->
+        <div id="summaryPlaceholder" class="c-summary__placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Select a date on the calendar to see your booking details
+        </div>
+
+        <!-- Details (shown after date selection) -->
+        <div id="summaryDetails" class="c-summary__details">
+          <div class="c-summary__date">
+            <span class="c-summary__date-icon">📅</span>
+            <span id="summaryDate">—</span>
+          </div>
+
+          <div class="c-summary__row">
+            <span>Session</span>
+            <span>4-Hour Shoot</span>
+          </div>
+          <div class="c-summary__row">
+            <span>Rate</span>
+            <span>$460.00</span>
+          </div>
+
+          <div class="c-summary__divider"></div>
+
+          <div class="c-summary__row">
+            <span>Deposit (due now)</span>
+            <span>$230.00</span>
+          </div>
+          <div class="c-summary__row">
+            <span>Final Balance (after shoot)</span>
+            <span>$230.00</span>
+          </div>
+
+          <div class="c-summary__divider"></div>
+
+          <div class="c-summary__row c-summary__total">
+            <span>Total</span>
+            <span>$460.00</span>
+          </div>
+
+          <!-- Square Deposit Button -->
+          <a href="#" id="depositBtn" class="c-deposit-btn c-deposit-btn--disabled" aria-disabled="true" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="c-deposit-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+              <line x1="1" y1="10" x2="23" y2="10"></line>
+            </svg>
+            Pay $230 Deposit via Square
+          </a>
+
+          <p class="c-deposit-note">
+            Secure payment powered by Square. Pay your deposit to lock in your shoot date.
+          </p>
+
+          <!-- Square Final Payment Button -->
+          <a href="#" id="finalBtn" class="c-deposit-btn c-deposit-btn--disabled c-deposit-btn--final"
+            aria-disabled="true" target="_blank" rel="noopener noreferrer">
+            <svg class="c-deposit-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Pay $230 Final Balance — Unlock Footage
+          </a>
+
+          <p class="c-deposit-note">
+            Final payment due after your shoot. Once paid, your footage will be unlocked for delivery.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <section class="c-howit">
+    <div class="c-container">
+      <h2 class="c-howit__title">How It Works</h2>
+
+      <div class="c-howit__steps">
+        <div class="c-step">
+          <div class="c-step__num">1</div>
+          <div class="c-step__label">Pick a Date</div>
+          <p class="c-step__desc">Choose your preferred shoot date from the calendar above.</p>
+        </div>
+        <div class="c-step">
+          <div class="c-step__num">2</div>
+          <div class="c-step__label">Pay Deposit</div>
+          <p class="c-step__desc">Secure your booking with a $230 deposit via Square. Simple and secure.</p>
+        </div>
+        <div class="c-step">
+          <div class="c-step__num">3</div>
+          <div class="c-step__label">Shoot + Unlock</div>
+          <p class="c-step__desc">After the shoot, pay the remaining $230 to unlock access to your footage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="c-footer">
+    <div class="c-container">
+      <p>© 2026 <a href="/reelestate/">ReelEstate Orlando</a> · Private Client Portal</p>
+    </div>
+  </footer>
+
+  <script src="client.js"></script>
+</body>
+
+</html>
